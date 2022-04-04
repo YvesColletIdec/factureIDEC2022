@@ -1,0 +1,22 @@
+﻿https://docs.microsoft.com/fr-ch/ef/core/cli/dotnet
+https://docs.microsoft.com/fr-ch/ef/core
+
+dotnet --info
+dotnet tool install --global dotnet-ef
+dotnet ef
+installer les packages Microsoft.EntityFrameworkCore.Proxies, Microsoft.EntityFrameworkCore.SqlServer et Microsoft.EntityFrameworkCore.Design
+dotnet ef dbcontext scaffold "ConnectionString" Microsoft.EntityFrameworkCore.SqlServer -p XXX (exemple)
+Forcer la regénération –f
+Définir le dossier de génération pour les models –o
+Définir le nom du namespace –n
+Définir le nom du Context -c
+Définir sans OnConfiguring --no-onconfiguring
+//DbContext Partial
+//LazyLoading
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+	optionsBuilder.UseLazyLoadingProxies() .UseSqlServer(_connectionString);
+}
+
+dotnet ef dbcontext scaffold "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Yves\github\factureIDEC2022\SolutionFacture\ProjetFactureCore\Facture2022.mdf;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -p prjEFCore -c FactureContext -f -o Models --no-onconfiguring
+

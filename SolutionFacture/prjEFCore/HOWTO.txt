@@ -4,7 +4,10 @@ https://github.com/YvesColletIdec/factureIDEC2022
 dotnet --info
 dotnet tool install --global dotnet-ef
 dotnet ef
-installer les packages Microsoft.EntityFrameworkCore.Proxies, Microsoft.EntityFrameworkCore.SqlServer et Microsoft.EntityFrameworkCore.Design
+installer les packages 
+	Microsoft.EntityFrameworkCore.Proxies 
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.EntityFrameworkCore.Design
 dotnet ef dbcontext scaffold "ConnectionString" Microsoft.EntityFrameworkCore.SqlServer -p XXX (exemple)
 Forcer la regénération –f
 Définir le dossier de génération pour les models –o

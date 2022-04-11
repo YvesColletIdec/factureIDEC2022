@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetFactureCore", "ProjetFactureCore\ProjetFactureCore.csproj", "{B5E4C538-147C-407A-89F8-1020184E52B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prjEFCore", "prjEFCore\prjEFCore.csproj", "{9FDF661C-78ED-46EC-A0EC-9C47D6393B42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "prjEFCore", "prjEFCore\prjEFCore.csproj", "{9FDF661C-78ED-46EC-A0EC-9C47D6393B42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prjEntity2", "prjEntity2\prjEntity2.csproj", "{769C732F-6CD4-436A-9413-FAD6B31D5CFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFacture", "WpfFacture\WpfFacture.csproj", "{FA92670B-0B85-4300-8551-D9F4E4FE050B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{9FDF661C-78ED-46EC-A0EC-9C47D6393B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FDF661C-78ED-46EC-A0EC-9C47D6393B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FDF661C-78ED-46EC-A0EC-9C47D6393B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{769C732F-6CD4-436A-9413-FAD6B31D5CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769C732F-6CD4-436A-9413-FAD6B31D5CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769C732F-6CD4-436A-9413-FAD6B31D5CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769C732F-6CD4-436A-9413-FAD6B31D5CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA92670B-0B85-4300-8551-D9F4E4FE050B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA92670B-0B85-4300-8551-D9F4E4FE050B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA92670B-0B85-4300-8551-D9F4E4FE050B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA92670B-0B85-4300-8551-D9F4E4FE050B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

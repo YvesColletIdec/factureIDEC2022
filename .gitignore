@@ -267,3 +267,6 @@ SolutionFacture/prjEntity2/bin/Debug/net5.0/Microsoft.Data.SqlClient.dll
 SolutionFacture/prjEntity2/bin/Debug/net5.0/Humanizer.dll
 SolutionFacture/prjEntity2/bin/Debug/net5.0/Castle.Core.dll
 SolutionFacture/.vs/SolutionFacture/DesignTimeBuild/.dtbcache.v2
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/WindowArticle.baml
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/WindowArticle.g.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/WindowArticle.g.i.cs

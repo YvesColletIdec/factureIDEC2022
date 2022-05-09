@@ -11,6 +11,6 @@ namespace prjEFCore.Models
         public string Nom { get; set; }
         public string NumEmploye { get; set; }
         public string MotDePasse { get; set; }
-        public string Toto { get; set; }
+        public bool? EstActif { get; set; }
     }
 }

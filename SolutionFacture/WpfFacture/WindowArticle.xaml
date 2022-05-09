@@ -23,17 +23,29 @@
             <Label Content="Prix"/>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1">
-            <ComboBox ItemsSource="{Binding ListCategorie}" DisplayMemberPath="Nom" SelectedItem="{Binding ArticleSelectionne.Categorie}"/>
+            <ComboBox ItemsSource="{Binding ListCategorie}" 
+                      DisplayMemberPath="Nom" 
+                      SelectedItem="{Binding ArticleSelectionne.Categorie}"/>
             <Label Content="{Binding ArticleSelectionne.Id}"/>
             <TextBox Text="{Binding ArticleSelectionne.Nom}"/>
             <TextBox Text="{Binding ArticleSelectionne.Prix}"/>
-            <CheckBox/>
+            <CheckBox Content="Est actif?" IsChecked="{Binding ArticleSelectionne.EstActif}"/>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10 0 0 0">
-            <Button Content="Nouveau" Width="100"/>
-            <Button Content="Sauver" Width="100"/>
+            <Button Content="Nouveau" Width="100" Command="{Binding NouveauCommand}"/>
+            <Button Content="Sauver" Width="100" Command="{Binding SauverCommand}"/>
             <TextBox Width="100"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding ListArticles}" SelectedItem="{Binding ArticleSelectionne}"/>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding ListArticles}" 
+                  SelectedItem="{Binding ArticleSelectionne}" AutoGenerateColumns="False"
+                  IsReadOnly="True" CanUserAddRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N°" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
+                <DataGridTextColumn Header="Prix" Binding="{Binding Prix}"/>
+                <DataGridTextColumn Header="Catégorie" Binding="{Binding Categorie.Nom}"/>
+                <DataGridCheckBoxColumn Header="Est Actif?" Binding="{Binding EstActif}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

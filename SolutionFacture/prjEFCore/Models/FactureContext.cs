@@ -41,6 +41,10 @@ namespace prjEFCore.Models
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.EstActif)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.Nom)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -130,6 +134,10 @@ namespace prjEFCore.Models
             {
                 entity.ToTable("Utilisateur");
 
+                entity.Property(e => e.EstActif)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.MotDePasse)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -144,11 +152,6 @@ namespace prjEFCore.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Toto)
-                    .HasMaxLength(20)
-                    .IsUnicode(false)
-                    .HasColumnName("toto");
             });
 
             OnModelCreatingPartial(modelBuilder);

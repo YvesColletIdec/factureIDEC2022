@@ -7,7 +7,18 @@ namespace prjEFCore
 {
     class Program
     {
+
         static void Main(string[] args)
+        {
+            FactureContext context = new FactureContext();
+            Article art = new Article();
+            art.Nom = "";
+            art.Prix = 1;
+            art.Designation = "";
+            context.Articles.Add(art);
+            context.SaveChanges();
+        }
+        static void Main2(string[] args)
         {
             //ouverture de la connexion à la base de données
             FactureContext context = new FactureContext();

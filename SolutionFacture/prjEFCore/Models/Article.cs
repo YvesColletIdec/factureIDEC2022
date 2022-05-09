@@ -18,6 +18,7 @@ namespace prjEFCore.Models
         public decimal Prix { get; set; }
         public string Commentaire { get; set; }
         public int? CategorieId { get; set; }
+        public bool? EstActif { get; set; }
 
         public virtual Categorie Categorie { get; set; }
         public virtual ICollection<LigneFacture> LigneFactures { get; set; }

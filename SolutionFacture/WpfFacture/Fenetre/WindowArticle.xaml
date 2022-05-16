@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="WpfFacture.WindowArticle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFacture"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <Label Content="Catégore"/>
+            <Label Content="Id"/>
+            <Label Content="Nom"/>
+            <Label Content="Prix"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <ComboBox ItemsSource="{Binding ListCategorie}" 
+                      DisplayMemberPath="Nom" 
+                      SelectedItem="{Binding ArticleSelectionne.Categorie}"/>
+            <Label Content="{Binding ArticleSelectionne.Id}"/>
+            <TextBox Text="{Binding ArticleSelectionne.Nom}"/>
+            <TextBox Text="{Binding ArticleSelectionne.Prix}"/>
+            <CheckBox Content="Est actif?" IsChecked="{Binding ArticleSelectionne.EstActif}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10 0 0 0">
+            <Button Content="Nouveau" Width="100" Command="{Binding NouveauCommand}"/>
+            <Button Content="Sauver" Width="100" Command="{Binding SauverCommand}"/>
+            <TextBox Width="100"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding ListArticles}" 
+                  SelectedItem="{Binding ArticleSelectionne}" AutoGenerateColumns="False"
+                  IsReadOnly="True" CanUserAddRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N°" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
+                <DataGridTextColumn Header="Prix" Binding="{Binding Prix}"/>
+                <DataGridTextColumn Header="Catégorie" Binding="{Binding Categorie.Nom}"/>
+                <DataGridCheckBoxColumn Header="Est Actif?" Binding="{Binding EstActif}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

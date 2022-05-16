@@ -62,6 +62,8 @@ namespace prjEFCore.Models
             {
                 entity.ToTable("Categorie");
 
+                entity.Property(e => e.ImageCat).HasMaxLength(200);
+
                 entity.Property(e => e.Nom)
                     .IsRequired()
                     .HasMaxLength(50)

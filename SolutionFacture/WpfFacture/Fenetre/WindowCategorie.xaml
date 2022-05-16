@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="WpfFacture.Fenetre.WindowCategorie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFacture.Fenetre"
+        mc:Ignorable="d"
+        xmlns:monViewModel="clr-namespace:WpfFacture.ViewModel"
+        d:DataContext="{d:DesignInstance monViewModel:CategorieViewModel}"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label Content="N°"/>
+            <Label Content="Nom" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="{Binding CategorieSelectionnee.Id}"/>
+            <TextBox Text="{Binding CategorieSelectionnee.Nom}" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10 0 0 0">
+            <Button Content="Nouveau" Width="80" />
+            <Button Content="Sauver" Width="80" Margin="0 10 0 10" />
+            <TextBox Text="Rechercher..." Width="100"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" MaxWidth="300" 
+                  ItemsSource="{Binding ListeCategories}" SelectedItem="{Binding CategorieSelectionnee}"
+                  IsReadOnly="true" CanUserAddRows="False" SelectionMode="Single">
+            
+        </DataGrid>
+        <Image Grid.Column="3" Grid.Row="0" Source="{Binding CategorieSelectionnee.MaVraieUrl}"/>
+    </Grid>
+</UserControl>

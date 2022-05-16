@@ -12,27 +12,36 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfFacture.Fenetre;
 
 namespace WpfFacture
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindowxxx : Window
+    public partial class MainWindow : Window
     {
-        public MainWindowxxx()
+        WindowArticle _fenetreArticle;
+        WindowCategorie _fenetreCategorie;
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Toto(object sender, RoutedEventArgs e)
+        private void menuGestionDesArticles_Click(object sender, RoutedEventArgs e)
         {
-            MonLabel.Content = "tcho";
+            monStackPanel.Children.Clear();
+            if (_fenetreArticle == null)
+                _fenetreArticle = new WindowArticle();
+            monStackPanel.Children.Add(_fenetreArticle);
         }
 
-        private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void menuGestionDesCategories_Click(object sender, RoutedEventArgs e)
         {
-            MonBouton.Content = "double";
+            monStackPanel.Children.Clear();
+            if (_fenetreCategorie == null)
+                _fenetreCategorie = new WindowCategorie();
+            monStackPanel.Children.Add(_fenetreCategorie);
         }
     }
 }

@@ -270,3 +270,12 @@ SolutionFacture/.vs/SolutionFacture/DesignTimeBuild/.dtbcache.v2
 SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/WindowArticle.baml
 SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/WindowArticle.g.cs
 SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/WindowArticle.g.i.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowArticle.baml
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowArticle.g.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowArticle.g.i.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowCategorie.baml
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowCategorie.g.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowCategorie.g.i.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowClient.baml
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowClient.g.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowClient.g.i.cs

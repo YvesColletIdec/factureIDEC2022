@@ -9,21 +9,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="WindowArticle.xaml.cs">
+    <Compile Update="Fenetre\WindowCategorie.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="WindowClient.xaml.cs">
+    <Compile Update="Fenetre\WindowArticle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Fenetre\WindowClient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Fenetre\WindowCategorie.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WindowArticle.xaml">
+    <Page Update="Fenetre\WindowArticle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="WindowClient.xaml">
+    <Page Update="Fenetre\WindowClient.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

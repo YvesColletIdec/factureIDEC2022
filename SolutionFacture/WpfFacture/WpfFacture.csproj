@@ -7,11 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fenetre\Capture.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\prjEFCore\prjEFCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fenetre\Capture.PNG" />
   </ItemGroup>
 
 </Project>

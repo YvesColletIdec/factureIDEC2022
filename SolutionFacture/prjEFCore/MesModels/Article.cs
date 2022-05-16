@@ -8,5 +8,6 @@ namespace prjEFCore.Models
     public partial class Article
     {
         //public Categorie Cat { get { return Categorie; } set { Categorie = value; } }
+        
     }
 }

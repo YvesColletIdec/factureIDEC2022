@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjEFCore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,15 @@ namespace WpfFacture
     /// </summary>
     public partial class WindowArticle : UserControl
     {
-        public WindowArticle()
+        private Utilisateur _uti;
+        public WindowArticle(Utilisateur uti)
         {
+            _uti = uti;
             InitializeComponent();
+            if (uti.Role == ERole.user.ToString())
+            {
+                btn_nouveau.IsEnabled = false;
+            }
             //instaciation d'un viewmodel pour faire la relation entre les composants graphiques
             //et les propriétés du viewmodel
             DataContext = new ArticleViewModel();

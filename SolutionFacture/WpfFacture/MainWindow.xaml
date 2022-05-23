@@ -14,6 +14,7 @@
         <Menu Grid.Row="0" Grid.Column="0">
             <MenuItem Header="Gestion des articles" x:Name="menuGestionDesArticles" Click="menuGestionDesArticles_Click"/>
             <MenuItem Header="Gestion des catégories" x:Name="menuGestionDesCategories" Click="menuGestionDesCategories_Click"/>
+            <MenuItem Header="Administration" x:Name="menuAdmin"/>
         </Menu>
         <StackPanel Grid.Row="1" Grid.Column="0" x:Name="monStackPanel"/>
     </Grid>

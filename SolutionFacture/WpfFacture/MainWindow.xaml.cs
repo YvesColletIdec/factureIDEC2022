@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjEFCore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,16 +24,42 @@ namespace WpfFacture
     {
         WindowArticle _fenetreArticle;
         WindowCategorie _fenetreCategorie;
+        Utilisateur monUtilisateur;
         public MainWindow()
         {
-            InitializeComponent();
+            WindowLogin wl = new WindowLogin();
+            //cacher ou masquer la fenetre actuelle
+            //this.Hide();
+            //afficher la fenetre de login
+            if (wl.ShowDialog().Value)
+            {
+                //l'utilisateur est connecté
+                monUtilisateur = wl.monUtilisateur;
+                this.Show();
+                InitializeComponent();
+                //déterminer si on affiche admin ou non
+                if (monUtilisateur.Role == ERole.administrator.ToString())
+                {
+                    menuAdmin.Visibility = Visibility.Visible;
+                } else
+                {
+                    menuAdmin.Visibility = Visibility.Hidden;
+                }
+                wl.Hide();
+                
+            } else
+            {
+                //l'utilisateur n'est pas connecté
+                Application.Current.Shutdown();
+            }
+            
         }
 
         private void menuGestionDesArticles_Click(object sender, RoutedEventArgs e)
         {
             monStackPanel.Children.Clear();
             if (_fenetreArticle == null)
-                _fenetreArticle = new WindowArticle();
+                _fenetreArticle = new WindowArticle(monUtilisateur);
             monStackPanel.Children.Add(_fenetreArticle);
         }
 

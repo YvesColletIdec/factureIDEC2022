@@ -18,9 +18,15 @@
     <Compile Update="Fenetre\WindowClient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Fenetre\WindowLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Fenetre\WindowCategorie.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Fenetre\WindowLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

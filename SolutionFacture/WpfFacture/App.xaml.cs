@@ -13,5 +13,10 @@ namespace WpfFacture
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Console.WriteLine("salut");
+        }
+        
     }
 }

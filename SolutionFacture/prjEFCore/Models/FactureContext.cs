@@ -154,6 +154,11 @@ namespace prjEFCore.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Role)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasDefaultValueSql("(user_name())");
             });
 
             OnModelCreatingPartial(modelBuilder);

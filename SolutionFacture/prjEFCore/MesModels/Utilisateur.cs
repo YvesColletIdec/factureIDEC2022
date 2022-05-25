@@ -7,8 +7,9 @@ namespace prjEFCore.Models
 {
     public partial class Utilisateur
     {
-        public static string ADMIN = "administrator";
-        public static string USER = "user";
+        public static string ADMIN_ROLE = "administrator";
+        public static string USER_ROLE = "user";
+        public static string ADMIN_NOM = "admin";
     }
 
     public enum ERole

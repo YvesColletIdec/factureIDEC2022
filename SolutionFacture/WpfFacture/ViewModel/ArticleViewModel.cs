@@ -97,5 +97,15 @@ namespace WpfFacture
             _context.SaveChanges();
         }
 
+        public void FiltrerArticles(string filtre)
+        {
+            //SELECT * FROM ARTICLES WHERE NOM LIKE '%filtre%'
+            ListArticles = new ObservableCollection<Article>(
+                _context.Articles.Where(
+                    a => a.Nom.Contains(filtre)
+                || a.Designation.Contains(filtre)
+                ));
+        }
+
     }
 }

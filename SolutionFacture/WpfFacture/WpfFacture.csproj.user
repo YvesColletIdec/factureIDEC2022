@@ -9,6 +9,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Fenetre\UserControlFacture.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Fenetre\UserControlPanier.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Fenetre\WindowCategorie.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +29,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Fenetre\UserControlFacture.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Fenetre\UserControlPanier.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Fenetre\WindowCategorie.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -7,15 +7,21 @@
         mc:Ignorable="d"
         Title="Gestion des factures" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="575*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0" Grid.Column="0">
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,118">
             <MenuItem Header="Gestion des articles" x:Name="menuGestionDesArticles" Click="menuGestionDesArticles_Click"/>
             <MenuItem Header="Gestion des catégories" x:Name="menuGestionDesCategories" Click="menuGestionDesCategories_Click"/>
-            <MenuItem Header="Administration" x:Name="menuAdmin"/>
+            <MenuItem Header="Panier" x:Name="menuPanier" Click="menuPanier_Click"/>
+            <MenuItem Header="Factures" x:Name="menuFacture" Click="menuFacture_Click"/>
         </Menu>
-        <StackPanel Grid.Row="1" Grid.Column="0" x:Name="monStackPanel"/>
+        <StackPanel Grid.Column="0" x:Name="monStackPanel" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
     </Grid>
 </Window>

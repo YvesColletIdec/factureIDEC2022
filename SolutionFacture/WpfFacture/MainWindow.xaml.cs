@@ -24,9 +24,20 @@ namespace WpfFacture
     {
         WindowArticle _fenetreArticle;
         WindowCategorie _fenetreCategorie;
+        UserControlPanier _ucPanier;
+        UserControlFacture _ucFacture;
         Utilisateur monUtilisateur;
         public MainWindow()
         {
+#if DEBUG
+            //MODE DEBUG
+            InitializeComponent();
+            this.Title = "Gestion des factures (DEV)";
+            FactureContext context = new FactureContext();
+            monUtilisateur = context.Utilisateurs.FirstOrDefault(u => u.Nom == Utilisateur.ADMIN_NOM);
+#else
+            //MODE RELEASE
+            
             WindowLogin wl = new WindowLogin();
             //cacher ou masquer la fenetre actuelle
             //this.Hide();
@@ -37,22 +48,25 @@ namespace WpfFacture
                 monUtilisateur = wl.monUtilisateur;
                 this.Show();
                 InitializeComponent();
+                this.Title = "Gestion des factures (PRD)";
                 //déterminer si on affiche admin ou non
                 if (monUtilisateur.Role == ERole.administrator.ToString())
                 {
-                    menuAdmin.Visibility = Visibility.Visible;
-                } else
+                    menuPanier.Visibility = Visibility.Visible;
+                }
+                else
                 {
-                    menuAdmin.Visibility = Visibility.Hidden;
+                    menuPanier.Visibility = Visibility.Hidden;
                 }
                 wl.Hide();
-                
-            } else
+
+            }
+            else
             {
                 //l'utilisateur n'est pas connecté
                 Application.Current.Shutdown();
             }
-            
+#endif
         }
 
         private void menuGestionDesArticles_Click(object sender, RoutedEventArgs e)
@@ -69,6 +83,22 @@ namespace WpfFacture
             if (_fenetreCategorie == null)
                 _fenetreCategorie = new WindowCategorie();
             monStackPanel.Children.Add(_fenetreCategorie);
+        }
+
+        private void menuPanier_Click(object sender, RoutedEventArgs e)
+        {
+            monStackPanel.Children.Clear();
+            if (_ucPanier == null)
+                _ucPanier = new UserControlPanier();
+            monStackPanel.Children.Add(_ucPanier);
+        }
+
+        private void menuFacture_Click(object sender, RoutedEventArgs e)
+        {
+            monStackPanel.Children.Clear();
+            if (_ucFacture == null)
+                _ucFacture = new UserControlFacture();
+            monStackPanel.Children.Add(_ucFacture);
         }
     }
 }

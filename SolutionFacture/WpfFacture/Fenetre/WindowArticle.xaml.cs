@@ -33,5 +33,11 @@ namespace WpfFacture
             //et les propriétés du viewmodel
             DataContext = new ArticleViewModel();
         }
+
+        private void TB_Recherche_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filtre = TB_Recherche.Text;
+            ((ArticleViewModel)DataContext).FiltrerArticles(filtre);
+        }
     }
 }

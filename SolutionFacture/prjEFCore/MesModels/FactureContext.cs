@@ -16,7 +16,9 @@ namespace prjEFCore.Models
 #if DEBUG
                 optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Yves\\github\\factureIDEC2022\\SolutionFacture\\ProjetFactureCore\\Facture2022.mdf;Integrated Security=True");
 #else
-                optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Data Source=");
+                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(
+                    "Server=facture2022.mssql.somee.com;Database=facture2022;User Id=monanibis2000_SQLLogin_2;Password=m8ny4163mx;"
+                    );
 #endif
             }
         }

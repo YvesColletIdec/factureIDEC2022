@@ -34,5 +34,19 @@ namespace prjEFCore.Models
             }
         }
 
+        public string TotalFacture
+        {
+            get
+            {
+                decimal prixFacture = 0m;
+                foreach (LigneFacture lf in this.LigneFactures)
+                {
+                    prixFacture += lf.Quantite * lf.PrixUntaire;
+                }
+                return $"CHF {prixFacture}";
+            }
+        }
+
+
     }
 }

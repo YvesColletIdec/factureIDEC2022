@@ -520,3 +520,12 @@ SolutionFacture/WpfFacture/obj/Release/net5.0-windows/Fenetre/UserControlPanier.
 SolutionFacture/WpfFacture/obj/Release/net5.0-windows/Fenetre/UserControlPanier.g.cs
 SolutionFacture/WpfFacture/obj/Release/net5.0-windows/Fenetre/UserControlPanier.g.i.cs
 SolutionFacture/WpfFacture/obj/Release/net5.0-windows/WpfFacture_MarkupCompile.i.lref
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/UserControlFactureDetail.g.i.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowFactureDetail.baml
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowFactureDetail.g.cs
+SolutionFacture/WpfFacture/obj/Debug/net5.0-windows/Fenetre/WindowFactureDetail.g.i.cs
+SolutionFacture/WpfFacture/obj/Release/net5.0-windows/Fenetre/UserControlFacture.baml
+SolutionFacture/WpfFacture/obj/Release/net5.0-windows/Fenetre/UserControlFacture.g.cs
+SolutionFacture/WpfFacture/obj/Release/net5.0-windows/Fenetre/UserControlFacture.g.i.cs
+SolutionFacture/WpfFacture/Properties/PublishProfiles/FolderProfile.pubxml
+SolutionFacture/WpfFacture/Properties/PublishProfiles/FolderProfile.pubxml.user

@@ -26,5 +26,20 @@ namespace WpfFacture.Fenetre
             DataContext = new FactureViewModel();
             InitializeComponent();
         }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //récupération de l'id de la facture
+            int idFacture = ((FactureViewModel)DataContext).FactureCourante.Id;
+            WindowFactureDetail wfd = new WindowFactureDetail(idFacture);
+            wfd.Show();
+            //Console.WriteLine(idFacture);
+            //object Toto = null;
+            //Toto = new FactureViewModel();
+            //if (Toto is FactureViewModel)
+            //{
+            //    Console.WriteLine("yeah");
+            //}
+        }
     }
 }

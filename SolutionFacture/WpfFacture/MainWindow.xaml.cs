@@ -37,7 +37,7 @@ namespace WpfFacture
             monUtilisateur = context.Utilisateurs.FirstOrDefault(u => u.Nom == Utilisateur.ADMIN_NOM);
 #else
             //MODE RELEASE
-            
+            this.Show();
             WindowLogin wl = new WindowLogin();
             //cacher ou masquer la fenetre actuelle
             //this.Hide();

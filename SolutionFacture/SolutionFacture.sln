@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prjEntity2", "prjEntity2\pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfFacture", "WpfFacture\WpfFacture.csproj", "{FA92670B-0B85-4300-8551-D9F4E4FE050B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D88EF03E-763B-4155-AF71-0E3A840F23C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{D88EF03E-763B-4155-AF71-0E3A840F23C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{5E981606-4072-46EB-81E2-050C95E14AA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D88EF03E-763B-4155-AF71-0E3A840F23C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D88EF03E-763B-4155-AF71-0E3A840F23C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D88EF03E-763B-4155-AF71-0E3A840F23C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E981606-4072-46EB-81E2-050C95E14AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E981606-4072-46EB-81E2-050C95E14AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E981606-4072-46EB-81E2-050C95E14AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E981606-4072-46EB-81E2-050C95E14AA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

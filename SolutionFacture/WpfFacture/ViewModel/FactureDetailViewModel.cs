@@ -43,6 +43,7 @@ namespace WpfFacture.ViewModel
                 LigneFactureCourante.Quantite = 1;
                 LigneFactureCourante.PrixUntaire = article.Prix;
                 FirePropertyChanged();
+
                 FirePropertyChanged("LigneFactureCourante");
             }
         }

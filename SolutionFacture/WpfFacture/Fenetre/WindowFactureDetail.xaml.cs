@@ -29,16 +29,14 @@ namespace WpfFacture.Fenetre
             set { _factureId = value; }
         }
 
-        public WindowFactureDetail()
-        {
-            InitializeComponent();
-        }
+       
 
         public WindowFactureDetail(int factureId)
         {
             FactureId = factureId;
-            FactureDetailViewModel fdvm = new FactureDetailViewModel();
-            //TODO à faire le 13.06
+            FactureDetailViewModel fdvm = new FactureDetailViewModel(factureId);
+            DataContext = fdvm;
+            InitializeComponent();
         }
     }
 }

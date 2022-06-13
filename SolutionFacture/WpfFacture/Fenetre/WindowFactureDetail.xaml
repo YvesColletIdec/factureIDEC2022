@@ -8,6 +8,77 @@
         mc:Ignorable="d"
         Title="WindowFactureDetail" Height="450" Width="800">
     <Grid>
-        <Label Content="{Binding FactureCourante.Id}" HorizontalAlignment="Left" Margin="291,127,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label>Client :</Label>
+            <ComboBox IsTextSearchEnabled="True" x:Name="comboboxClient" ItemsSource="{Binding ListeClients}" SelectedItem="{Binding FactureCourante.Client}" DisplayMemberPath="PrenomNom"/>
+            <TextBlock Margin="10" Text="{Binding xxx}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="0" Grid.Column="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Numéro : " Grid.Row="0" Grid.Column="0"/>
+            <TextBox Text="{Binding FactureCourante.NumFacture}" Grid.Row="0" Grid.Column="1" Width="Auto" Margin="5"/>
+            <Label Content="Date : " Grid.Row="1" Grid.Column="0"/>
+            <DatePicker Grid.Column="1" HorizontalAlignment="Left" Height="23" Grid.Row="1" Margin="5" SelectedDate="{Binding FactureCourante.DateFacture}" VerticalAlignment="Center" Width="120" FirstDayOfWeek="Monday"/>
+
+        </Grid>
+
+        <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="192" BorderThickness="1" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ListeArticles}" DisplayMemberPath="CustomizeArticle" SelectedItem="{Binding ArticleCourant}"/>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Nom : " Grid.Row="0" Grid.Column="0"/>
+            <Label Content="{Binding LigneFactureCourante.Article.Nom}" Grid.Row="0" Grid.Column="1" Margin="5"/>
+            <Label Content="Prix : " Grid.Row="1" Grid.Column="0"/>
+            <TextBox Text="{Binding LigneFactureCourante.PrixUntaire}" Grid.Row="1" Grid.Column="1" Width="100" Margin="5"/>
+            <Label Content="Quantité : " Grid.Row="2" Grid.Column="0"/>
+            <TextBox Text="{Binding LigneFactureCourante.Quantite}" Grid.Row="2" Grid.Column="1" Width="100" Margin="5"/>
+            <Button Content="Ajouter" x:Name="ajouterButton" Grid.Row="3" Grid.ColumnSpan="2" Height="27" Width="80" HorizontalAlignment="Right" Margin="5" Command="{Binding AddCommand}"/>
+            <!--<Button Content="Supprimer" x:Name="supprimerButton" Grid.Row="4" Grid.ColumnSpan="2" Height="27" Width="80" HorizontalAlignment="Right" Margin="5" Command="{Binding DeleteCommand}"/>-->
+        </Grid>
+        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" ItemsSource="{Binding FactureCourante.LigneFactures, Mode=TwoWay}" 
+                  IsReadOnly="True" SelectedItem="{Binding xxx, Mode=TwoWay}" x:Name="factureGrid" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto" Binding="{Binding ArticleId}" Header="N° Article" />
+                <DataGridTextColumn Width="Auto" Binding="{Binding Article.Nom}" Header="Nom" />
+                <DataGridTextColumn Width="Auto" Binding="{Binding Quantite}" Header="Quantité" />
+                <DataGridTextColumn Width="Auto" Binding="{Binding PrixUntaire}" Header="Prix unitaire" />
+                <DataGridTextColumn Width="*" Binding="{Binding TotalLigne}" Header="Prix total" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="{Binding FactureCourante.TotalFacture}" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right"/>
+        <Button Content="Imprimer" Grid.Row="4" Grid.Column="0"  Command="{Binding PrintCommand}" Width="100"/>
+        <Button Content="Enregistrer" Grid.Row="4" Grid.Column="1" Command="{Binding SaveCommand}" Width="100"/>
     </Grid>
 </mah:MetroWindow>

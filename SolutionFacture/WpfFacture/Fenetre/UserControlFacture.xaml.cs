@@ -41,5 +41,12 @@ namespace WpfFacture.Fenetre
             //    Console.WriteLine("yeah");
             //}
         }
+
+        private void BTN_NEW_Click(object sender, RoutedEventArgs e)
+        {
+            int idFacture = 0;
+            WindowFactureDetail wfd = new WindowFactureDetail(idFacture);
+            wfd.Show();
+        }
     }
 }

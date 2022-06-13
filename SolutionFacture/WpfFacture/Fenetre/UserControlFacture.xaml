@@ -7,7 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding ListeFactures}" SelectionMode="Single" IsReadOnly="true"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="BTN_NEW" Content="Créer une nouvelle facture" Grid.Column="0" FontSize="20" FontWeight="Bold" Click="BTN_NEW_Click"/>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding ListeFactures}" SelectionMode="Single" IsReadOnly="true"
                   CanUserAddRows="False" SelectedItem="{Binding FactureCourante}" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="N°" Binding="{Binding Id}"/>

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 
 namespace WpfApplication.Utilities
 {
@@ -86,6 +87,8 @@ namespace WpfApplication.Utilities
 
         public static void CreateDocumentFromTemplateWithFormat(Facture f, string template)
         {
+            //pour Jerome
+            //decimal x = f.LigneFactures.OrderByDescending(l => l.Id).FirstOrDefault().PrixUntaire;
             Document document = new Document();
             document.LoadFromFile(template);
             document.Replace("client_prenom", f.Client.Prenom, true, true);
@@ -195,6 +198,108 @@ namespace WpfApplication.Utilities
             //ok pour .net core
             var pr = new Process();
             pr.StartInfo = new ProcessStartInfo(@$"tmp{f.Id}.pdf")
+            {
+                UseShellExecute = true
+            };
+            pr.Start();
+
+            //document.SaveToFile("SpireDocTestModified.docx", FileFormat.Docx2013);
+        }
+
+        public static void CreateDocumentArticle(List<Article> liste, string template)
+        {
+            Document document = new Document();
+            document.LoadFromFile(template);
+
+
+            //la première section est celle ou l'on trouve un titre "Titre1"
+            Section s = document.Sections[0];
+            Table table = s.AddTable(true);
+            String[] Header = { "N°", "Nom", "Prix unitaire" };
+            table.ResetCells(liste.Count + 1, Header.Length);
+
+            //Header Row
+            TableRow FRow = table.Rows[0];
+            FRow.IsHeader = true;
+            //Row Height
+            //FRow.Height = 18;
+            FRow.Cells[0].Width = 20;
+            FRow.Cells[1].Width = 150;
+            FRow.Cells[2].Width = 60;
+ 
+            //Header Format
+            FRow.RowFormat.BackColor = Color.LightBlue;
+            for (int i = 0; i < Header.Length; i++)
+            {
+                //Cell Alignment
+                Paragraph p = FRow.Cells[i].AddParagraph();
+                FRow.Cells[i].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+                p.Format.HorizontalAlignment = HorizontalAlignment.Center;
+                //Data Format
+                TextRange TR = p.AppendText(Header[i]);
+                TR.CharacterFormat.FontName = "Calibri";
+                TR.CharacterFormat.FontSize = 14;
+                TR.CharacterFormat.TextColor = Color.Teal;
+                TR.CharacterFormat.Bold = true;
+            }
+
+            //Data Row
+            for (int r = 0; r < liste.Count; r++)
+            {
+                Article a = liste[r];
+                TableRow DataRow = table.Rows[r + 1];
+
+                //Row Height
+                DataRow.Height = 15;
+
+                //C Represents Column. 5 -> nombre de colonnes
+                for (int c = 0; c < 3; c++)
+                {
+                    //Cell Alignment
+                    DataRow.Cells[c].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+                    //Fill Data in Rows
+                    Paragraph p2 = DataRow.Cells[c].AddParagraph();
+                    TextRange TR2 = null;
+                    switch (c)
+                    {
+                        case 0:
+                            TR2 = p2.AppendText(a.Id.ToString());
+                            break;
+                        case 1:
+                            TR2 = p2.AppendText(a.Nom);
+                            break;
+                        case 2:
+                            TR2 = p2.AppendText(a.Prix.ToString());
+                            break;
+                        default:
+                            Console.WriteLine("Erreur dans le numéro de colonne");
+                            break;
+                    }
+
+                    //Format Cells
+                    p2.Format.HorizontalAlignment = HorizontalAlignment.Center;
+                    TR2.CharacterFormat.FontName = "Calibri";
+                    TR2.CharacterFormat.FontSize = 12;
+                    TR2.CharacterFormat.TextColor = Color.Brown;
+                }
+
+            }
+            //TOTAL
+            Paragraph pa = s.AddParagraph();
+            pa.AppendText("\n");
+            TextRange t = pa.AppendText($"Total d'articles : {liste.Count}");
+            pa.Format.HorizontalAlignment = HorizontalAlignment.Right;
+            t.CharacterFormat.FontName = "Calibri";
+            t.CharacterFormat.FontSize = 16;
+            t.CharacterFormat.TextColor = Color.SteelBlue;
+
+            document.SaveToFile($"tmpA{liste.Count}.pdf", FileFormat.PDF);
+            //ok pour .net framework
+            //System.Diagnostics.Process.Start("xxx.pdf");
+
+            //ok pour .net core
+            var pr = new Process();
+            pr.StartInfo = new ProcessStartInfo(@$"tmpA{liste.Count}.pdf")
             {
                 UseShellExecute = true
             };

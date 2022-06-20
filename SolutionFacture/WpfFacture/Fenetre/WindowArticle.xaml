@@ -35,6 +35,7 @@
             <Button Content="Nouveau" Width="100" Command="{Binding NouveauCommand}" x:Name="btn_nouveau"/>
             <Button Content="Sauver" Width="100" Command="{Binding SauverCommand}"/>
             <TextBox x:Name="TB_Recherche" Width="100" KeyUp="TB_Recherche_KeyUp"/>
+            <Button Content="Imprimer la liste" Width="140" Command="{Binding PrintCommand}"/>
         </StackPanel>
         <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding ListArticles}" 
                   SelectedItem="{Binding ArticleSelectionne}" AutoGenerateColumns="False"

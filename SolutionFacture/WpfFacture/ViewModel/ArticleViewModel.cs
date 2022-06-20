@@ -5,12 +5,15 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApplication.Utilities;
 
 namespace WpfFacture
 {
     //mon viewmodel pour la gestion de  l'interface graphique
     class ArticleViewModel : BaseViewModel
     {
+        private string template = @"C:\Users\Yves\github\factureIDEC2022\SolutionFacture\WpfFacture\template\articles_template.docx";
+        public RelayCommand PrintCommand { get; set; }
         private FactureContext _context;
 
         private ObservableCollection<Article> _listArticles;
@@ -74,8 +77,13 @@ namespace WpfFacture
             ListCategorie = new ObservableCollection<Categorie>(_context.Categories);
             NouveauCommand = new RelayCommand(Nouveau);
             SauverCommand = new RelayCommand(Sauver);
+            PrintCommand = new RelayCommand(Imprimer);
         }
 
+        private void Imprimer()
+        {
+            Print.CreateDocumentArticle(ListArticles.ToList(), template);
+        }
         private void Nouveau()
         {
             ArticleSelectionne = new Article() {Nom = "", Designation = "", EstActif = true };

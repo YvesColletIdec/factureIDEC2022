@@ -67,8 +67,8 @@
             <Button Content="Ajouter" x:Name="ajouterButton" Grid.Row="3" Grid.ColumnSpan="2" Height="27" Width="80" HorizontalAlignment="Right" Margin="5" Command="{Binding AddCommand}"/>
             <!--<Button Content="Supprimer" x:Name="supprimerButton" Grid.Row="4" Grid.ColumnSpan="2" Height="27" Width="80" HorizontalAlignment="Right" Margin="5" Command="{Binding DeleteCommand}"/>-->
         </Grid>
-        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" ItemsSource="{Binding FactureCourante.LigneFactures, Mode=TwoWay}" 
-                  IsReadOnly="True" SelectedItem="{Binding xxx, Mode=TwoWay}" x:Name="factureGrid" BorderThickness="1">
+        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" ItemsSource="{Binding LignesFactures, Mode=TwoWay}" 
+                  IsReadOnly="True" x:Name="factureGrid" BorderThickness="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="Auto" Binding="{Binding ArticleId}" Header="N° Article" />
                 <DataGridTextColumn Width="Auto" Binding="{Binding Article.Nom}" Header="Nom" />
@@ -79,6 +79,6 @@
         </DataGrid>
         <Label Content="{Binding FactureCourante.TotalFacture}" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right"/>
         <Button Content="Imprimer" Grid.Row="4" Grid.Column="0"  Command="{Binding PrintCommand}" Width="100"/>
-        <Button Content="Enregistrer" Grid.Row="4" Grid.Column="1" Command="{Binding SaveCommand}" Width="100"/>
+        <Button Content="Enregistrer" Grid.Row="4" Grid.Column="1" Command="{Binding SaveCommand}" Width="100" Click="Button_Click" Height="27" Margin="200,0,200,0" VerticalAlignment="Top"/>
     </Grid>
 </mah:MetroWindow>

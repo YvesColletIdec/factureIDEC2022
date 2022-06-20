@@ -5,11 +5,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApplication.Utilities;
 
 namespace WpfFacture.ViewModel
 {
     public class FactureDetailViewModel : BaseViewModel
     {
+
+        private string templateWord = @"C:\\Users/Yves\github//factureIDEC2022\SolutionFacture\WpfFacture\template\facture_template.docx";
 
         private int _factureId;
 
@@ -18,6 +21,7 @@ namespace WpfFacture.ViewModel
             get { return _factureId; }
             set { _factureId = value; }
         }
+
 
         private LigneFacture ligneFactureCourante;
 
@@ -48,7 +52,9 @@ namespace WpfFacture.ViewModel
             }
         }
 
-   
+        public RelayCommand AddCommand { get; set; }
+
+        public RelayCommand SaveCommand { get; set; }
 
         private ObservableCollection<Client> _listeClients;
 
@@ -57,6 +63,8 @@ namespace WpfFacture.ViewModel
             get { return _listeClients; }
             set { _listeClients = value; }
         }
+
+
 
         private ObservableCollection<Article> articles;
 
@@ -80,6 +88,39 @@ namespace WpfFacture.ViewModel
                 FirePropertyChanged();
             }
         }
+
+        private void AjouterArticle()
+        {
+            FactureCourante.LigneFactures.Add(ligneFactureCourante);
+            FirePropertyChanged("FactureCourante.LigneFactures");
+            FirePropertyChanged("LignesFactures");
+        }
+
+        public ObservableCollection<LigneFacture> LignesFactures { 
+            get {
+                return new ObservableCollection<LigneFacture>(FactureCourante.LigneFactures);
+
+            }
+            set { }
+        }
+
+        private void SauverFacture()
+        {
+            if (FactureCourante.Id == 0)
+            {
+                _context.Factures.Add(FactureCourante);
+            }
+            _context.SaveChanges();
+            
+        }
+
+        private void ImprimerFacture()
+        {
+            Print.CreateDocumentFromTemplateWithFormat(FactureCourante, templateWord);
+        }
+
+        public RelayCommand PrintCommand { get; set; }
+
         public FactureDetailViewModel(int factureId)
         {
             this.FactureId = factureId;
@@ -96,6 +137,9 @@ namespace WpfFacture.ViewModel
             
             ListeClients = new ObservableCollection<Client>(_context.Clients);
             ListeArticles = new ObservableCollection<Article>(_context.Articles);
+            AddCommand = new RelayCommand(AjouterArticle);
+            SaveCommand = new RelayCommand(SauverFacture);
+            PrintCommand = new RelayCommand(ImprimerFacture);
         }
     }
 }

@@ -38,5 +38,10 @@ namespace WpfFacture.Fenetre
             DataContext = fdvm;
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

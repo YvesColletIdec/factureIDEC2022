@@ -78,7 +78,7 @@ namespace WpfFacture.Fenetre {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfFacture;V1.0.0.0;component/fenetre/windowfacturedetail.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfFacture;component/fenetre/windowfacturedetail.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Fenetre\WindowFactureDetail.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

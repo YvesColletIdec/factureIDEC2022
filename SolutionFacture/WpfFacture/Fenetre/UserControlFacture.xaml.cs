@@ -32,7 +32,11 @@ namespace WpfFacture.Fenetre
             //récupération de l'id de la facture
             int idFacture = ((FactureViewModel)DataContext).FactureCourante.Id;
             WindowFactureDetail wfd = new WindowFactureDetail(idFacture);
-            wfd.Show();
+            wfd.ShowDialog();
+            if (wfd.DialogResult.HasValue && wfd.DialogResult.Value)
+            {
+                DataContext = new FactureViewModel();
+            }
             //Console.WriteLine(idFacture);
             //object Toto = null;
             //Toto = new FactureViewModel();
@@ -46,7 +50,11 @@ namespace WpfFacture.Fenetre
         {
             int idFacture = 0;
             WindowFactureDetail wfd = new WindowFactureDetail(idFacture);
-            wfd.Show();
+            wfd.ShowDialog();
+            if (wfd.DialogResult.HasValue && wfd.DialogResult.Value)
+            {
+                DataContext = new FactureViewModel();
+            }
         }
     }
 }
